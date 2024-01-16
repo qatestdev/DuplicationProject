@@ -75,6 +75,18 @@ public class PullRequestWebPage extends BaseCodacyWebPage {
         private static final By NEW_ISSUES_COLUMN                      = By.id("table-header-new-issues");
         private static final By DUPLICATION_COLUMN                     = By.id("table-header-duplication");
         private static final By COMPLEXITY_COLUMN                      = By.id("table-header-complexity");
+ private static final By NO_NEW_FIXED_ISSUES                    = By.xpath("//*[contains(text(),'fix any issue!')]");
+        private static final By NO_NEW_ISSUES                          = By.xpath("//*[contains(text(),'Woo! You don')]");
+        private static final By ORIGIN_COLUMN                          = By.id("origin_column");
+        private static final By PR_DIFF_TAB                            = By.id("pr_diff_tab");
+        private static final By PULL_REQUESTS_DIFF_COVERAGE            = By.id("pr-diff-variation");
+        private static final By PULL_REQUESTS_TABLE_CONTAINER          = By.id("pull-requests-table");
+        private static final By SELECT_PULL_REQUEST                    = By.cssSelector("#pull-requests-table tbody > tr:first-child");
+        private static final By SELECT_VIEW_LOGS                       = By.xpath("//*[contains(text(),'View logs')]") ;
+        private static final By STATUS_COLUMN                          = By.id("table-header-status-quality");
+        private static final By NEW_ISSUES_COLUMN                      = By.id("table-header-new-issues");
+        private static final By DUPLICATION_COLUMN                     = By.id("table-header-duplication");
+        private static final By COMPLEXITY_COLUMN                      = By.id("table-header-complexity");
 
         private static final String COVERAGE_VARIATION_VALUE_WITH_VALUE                      = "//*[contains(text(),'%s')]";
         private static final String DIFF_COVERAGE_VALUE_WITH_VALUE                           = "//*[contains(text(),'%s')]";
@@ -118,6 +130,34 @@ public class PullRequestWebPage extends BaseCodacyWebPage {
     }
 
     public void validateOpenPullRequestsTable() {
+        getElementWhenVisible(Locator.PULL_REQUESTS_TABLE_CONTAINER).isDisplayed();
+        getElementWhenVisible(Locator.STATUS_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.AUTHOR_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.TITLE_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.NEW_ISSUES_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.DUPLICATION_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.COMPLEXITY_COLUMN).isDisplayed();
+    }
+
+    public void validateOpenPullRequestsTableCoverage() {
+        getElementWhenVisible(Locator.PULL_REQUESTS_TABLE_CONTAINER).isDisplayed();
+        getElementWhenVisible(Locator.COVERAGE_STATUS_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.AUTHOR_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.TITLE_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.DIFF_COVERAGE_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.COVERAGE_VARIATION_COLUMN).isDisplayed();
+    }
+
+    public void validatePullRequestsCommitsTableCoverage() {
+        getElementWhenVisible(Locator.COMMIT_COVERAGE_TABLE).isDisplayed();
+        getElementWhenVisible(Locator.COVERAGE_STATUS_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.AUTHOR_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.COMMIT_COVERAGE_TITLE_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.COMMIT_TOTAL_COVERAGE_COLUMN).isDisplayed();
+        getElementWhenVisible(Locator.COVERAGE_VARIATION_COLUMN).isDisplayed();
+    }
+
+ public void validateOpenPullRequestsTable() {
         getElementWhenVisible(Locator.PULL_REQUESTS_TABLE_CONTAINER).isDisplayed();
         getElementWhenVisible(Locator.STATUS_COLUMN).isDisplayed();
         getElementWhenVisible(Locator.AUTHOR_COLUMN).isDisplayed();
