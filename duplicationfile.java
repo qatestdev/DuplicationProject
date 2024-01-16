@@ -29,6 +29,13 @@ public class TC_03_LoginWithBitBucket extends BaseTestWeb {
         homepage.landingPage();
         authentication.login(LoginMethod.BITBUCKET, testEnvironment.email(), testEnvironment.password(), Optional.empty());
     }
+public void tc03setUp() {
+        Authentication authentication = new Authentication(driver, testEnvironment);
+        Homepage homepage = new Homepage(driver, testEnvironment);
+
+        homepage.landingPage();
+        authentication.login(LoginMethod.BITBUCKET, testEnvironment.email(), testEnvironment.password(), Optional.empty());
+    }
    public void tc03setUp() {
         Authentication authentication = new Authentication(driver, testEnvironment);
         Homepage homepage = new Homepage(driver, testEnvironment);
