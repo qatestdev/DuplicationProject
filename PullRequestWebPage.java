@@ -81,6 +81,11 @@ public class PullRequestWebPage extends BaseCodacyWebPage {
         private static final String FILE_NAME_EXISTENCE                                      = "//strong[contains(text(),'%s')]";
         private static final String SELECT_COVERAGE_PULL_REQUEST                             = "//*[@id=\"pull-requests-table\"]/table/tbody/tr[%s]";
         private static final String SELECT_PULL_REQUEST_BY_TITLE                             = "//*[text()[contains(.,'%s')]]";
+ private static final String COVERAGE_VARIATION_VALUE_WITH_VALUE                      = "//*[contains(text(),'%s')]";
+        private static final String DIFF_COVERAGE_VALUE_WITH_VALUE                           = "//*[contains(text(),'%s')]";
+        private static final String FILE_NAME_EXISTENCE                                      = "//strong[contains(text(),'%s')]";
+        private static final String SELECT_COVERAGE_PULL_REQUEST                             = "//*[@id=\"pull-requests-table\"]/table/tbody/tr[%s]";
+        private static final String SELECT_PULL_REQUEST_BY_TITLE                             = "//*[text()[contains(.,'%s')]]";
 
         private static By getFileHeaderDiffCoverageValueLocator(String coverageValue) {
             return By.xpath("//div[contains(text(), '" + coverageValue + "')]");
@@ -94,6 +99,15 @@ public class PullRequestWebPage extends BaseCodacyWebPage {
     }
 
     public void selectClosedPrsTab() {
+        getElement(Locator.CLOSE_PRS_TAB).isDisplayed();
+        getElement(Locator.CLOSE_PRS_TAB).click();
+    }
+
+    public void selectOpenPrsTab() {
+        getElement(Locator.OPEN_PRS_TAB).isDisplayed();
+        getElement(Locator.OPEN_PRS_TAB).click();
+    }
+  public void selectClosedPrsTab() {
         getElement(Locator.CLOSE_PRS_TAB).isDisplayed();
         getElement(Locator.CLOSE_PRS_TAB).click();
     }
